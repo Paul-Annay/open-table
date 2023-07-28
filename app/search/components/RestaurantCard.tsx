@@ -22,7 +22,9 @@ function RestaurantCard() {
                     </div>
                 </div>
                 <div className='text-red-600'>
-                    <Link href=''>View more information</Link>
+                    <Link href='/restaurant/milestones-grill'>
+                        View more information
+                    </Link>
                 </div>
             </div>
         </div>
