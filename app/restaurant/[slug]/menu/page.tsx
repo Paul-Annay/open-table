@@ -1,8 +1,7 @@
-import Link from "next/link";
 import NavBar from "../../../components/NavBar";
 import Header from "../components/Header";
-import RestaurantNavBar from "../components/RestaurantNavBar";
 import Menu from "../components/Menu";
+import RestaurantNavBar from "../components/RestaurantNavBar";
 
 export default function RestaurantMenu() {
     return (

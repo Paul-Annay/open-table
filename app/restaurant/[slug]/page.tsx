@@ -1,13 +1,12 @@
-import Link from "next/link";
 import NavBar from "../../components/NavBar";
-import Header from "./components/Header";
-import RestaurantNavBar from "./components/RestaurantNavBar";
-import Title from "./components/Title";
-import Rating from "./components/Rating";
 import Description from "./components/Description";
+import Header from "./components/Header";
 import Images from "./components/Images";
-import Reviews from "./components/Reviews";
+import Rating from "./components/Rating";
 import ReservationCard from "./components/ReservationCard";
+import RestaurantNavBar from "./components/RestaurantNavBar";
+import Reviews from "./components/Reviews";
+import Title from "./components/Title";
 
 export default function RestaurantDetails() {
     return (

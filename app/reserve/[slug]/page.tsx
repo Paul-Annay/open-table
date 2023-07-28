@@ -1,7 +1,6 @@
-import Link from "next/link";
 import NavBar from "../../components/NavBar";
-import Header from "./components/Header";
 import Form from "./components/Form";
+import Header from "./components/Header";
 
 export default function Reserve() {
     return (
