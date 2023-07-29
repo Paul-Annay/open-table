@@ -1,7 +1,7 @@
 export default function Head() {
     return (
         <>
-            <title>OpenTable</title>
+            <title>Milestone Grill (Toronto) OpenTable</title>
             <meta
                 content='width=device-width, initial-scale=1'
                 name='viewport'
