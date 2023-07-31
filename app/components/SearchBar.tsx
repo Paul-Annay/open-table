@@ -13,12 +13,18 @@ function SearchBar() {
                 type='text'
                 placeholder='State, city or town'
                 value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                onChange={(e) => {
+                    setLocation(e.target.value);
+                }}
             />
             <button
                 className='rounded bg-red-600 px-9 py-2 text-white'
                 onClick={() => {
-                    if (!(location == "banana")) return router.push("/search");
+                    if (location === "") {
+                        return;
+                    }
+                    router.push(`/search?city=${location}`);
+                    setLocation("");
                 }}>
                 Let's go
             </button>
