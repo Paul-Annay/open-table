@@ -6,6 +6,7 @@ import ReservationCard from "./components/ReservationCard";
 import RestaurantNavBar from "./components/RestaurantNavBar";
 import Reviews from "./components/Reviews";
 import Title from "./components/Title";
+import { notFound } from "next/navigation";
 
 interface Restaurant {
     id: number;
@@ -34,7 +35,7 @@ const fetchRestaurantBySlug = async (slug: string): Promise<Restaurant> => {
     });
 
     if (!restaurant) {
-        throw new Error("Cannot Find Restaurant!");
+        notFound();
     }
 
     return restaurant;

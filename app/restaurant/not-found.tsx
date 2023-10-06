@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 import errorMascot from "../../public/icons/error.png";
+import Image from "next/image";
 
-function Error({ error }: { error: Error }) {
+function NotFound() {
     return (
         <div className='h-screen bg-gray-200 flex flex-col justify-center items-center'>
             <Image
@@ -16,11 +16,13 @@ function Error({ error }: { error: Error }) {
                 <h3 className='text-3xl font-bold'>
                     Well, this is embarrassing
                 </h3>
-                <p className='text-reg font-bold'>{error.message}</p>
-                <p className='mt-6 text-sm font-light'>Error Code: 400</p>
+                <p className='text-reg font-bold'>
+                    We couldn't find that Restaurant
+                </p>
+                <p className='mt-6 text-sm font-light'>Error Code: 404</p>
             </div>
         </div>
     );
 }
 
-export default Error;
+export default NotFound;
