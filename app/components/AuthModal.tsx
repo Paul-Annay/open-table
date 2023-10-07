@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import AuthModalInputs from "./AuthModalInputs";
 
 const style = {
     position: "absolute" as "absolute",
@@ -13,7 +14,6 @@ const style = {
     transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: "background.paper",
-    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
 };
@@ -22,6 +22,21 @@ export default function AuthModal({ isSignIn }: { isSignIn: boolean }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputs({
+            ...inputs,
+            [e.target.name]: e.target.value,
+        });
+    };
+    const [inputs, setInputs] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        city: "",
+        password: "",
+    });
 
     const renderContent = (signInContent: string, signUpContent: string) => {
         return isSignIn ? signInContent : signUpContent;
@@ -42,16 +57,29 @@ export default function AuthModal({ isSignIn }: { isSignIn: boolean }) {
                 aria-labelledby='modal-modal-title'
                 aria-describedby='modal-modal-description'>
                 <Box sx={style}>
-                    <Typography
-                        id='modal-modal-title'
-                        variant='h6'
-                        component='h2'>
-                        Text in a modal
-                    </Typography>
-                    <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor
-                        ligula.
-                    </Typography>
+                    <div className='p-2 h-[600px]'>
+                        <div className='uppercase text-center font-bold pb-2 mb-2 border-b'>
+                            <p className='text-sm'>
+                                {renderContent("Sign in", "Create Account")}
+                            </p>
+                        </div>
+                        <div className='m-auto'>
+                            <h2 className='text-2xl font-light text-center'>
+                                {renderContent(
+                                    "Login to your account",
+                                    "Create your OpenTable account"
+                                )}
+                            </h2>
+                        </div>
+                        <AuthModalInputs
+                            inputs={inputs}
+                            handleChangeInput={handleChangeInput}
+                            isSignIn={isSignIn}
+                        />
+                        <button className='uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400'>
+                            {renderContent("Sign In", "Create Account")}
+                        </button>
+                    </div>
                 </Box>
             </Modal>
         </div>
