@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -54,6 +58,19 @@ export default async function handler(
                 errorMessage: errors[0],
             });
         }
+
+        const userWithEmail = await prisma.user.findUnique({
+            where: {
+                email,
+            },
+        });
+
+        if (userWithEmail) {
+            return res.status(400).json({
+                errorMessage: "Email is associated with another account.",
+            });
+        }
+
         res.status(200).json({
             hello: "There",
         });
