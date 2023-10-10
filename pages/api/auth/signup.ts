@@ -97,7 +97,7 @@ export default async function handler(
             .sign(secret);
 
         res.status(200).json({
-            data: token,
+            token,
         });
     }
 }
