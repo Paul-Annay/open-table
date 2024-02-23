@@ -10,9 +10,11 @@ const useAuth = () => {
     const signin = async ({
         email,
         password,
+        handleClose,
     }: {
         email: string;
         password: string;
+        handleClose: () => void;
     }) => {
         setAuthState({
             loading: true,
@@ -32,6 +34,7 @@ const useAuth = () => {
                 data: response.data,
                 error: null,
             });
+            handleClose();
         } catch (error: any) {
             setAuthState({
                 loading: false,
