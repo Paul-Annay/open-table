@@ -36,7 +36,7 @@ export default function AuthContext({
     const [authState, setAuthState] = useState<State>({
         loading: false,
         data: null,
-        error: "New Error",
+        error: null,
     });
     return (
         <AuthenticationContext.Provider value={{ ...authState, setAuthState }}>
